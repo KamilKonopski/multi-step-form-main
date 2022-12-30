@@ -10,11 +10,56 @@
 			href="./assets/images/favicon-32x32.png"
 		/>
 		<title>Frontend Mentor | Multi-step form</title>
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style.min.css" />
 		<script src="js/app.js" defer></script>
 	</head>
 	<body>
-		<div class="attribution">
+		<div class="container">
+			<header class="header">
+				<nav class="header__navigation">
+					<ul class="menu">
+						<li class="menu__item">1</li>
+						<li class="menu__item">2</li>
+						<li class="menu__item">3</li>
+						<li class="menu__item">4</li>
+					</ul>
+				</nav>
+			</header>
+			<section class="personal">
+				<h1 class="personal__heading">Personal info</h1>
+				<p class="personal__text-info">
+					Please provide your name, email address, and phone number.
+				</p>
+				<form class="personal__form">
+					<label class="personal__label" for="name">Name</label>
+					<input
+						class="personal__input"
+						type="text"
+						name="name"
+						id="name"
+						placeholder="e.g. Stephen King"
+					/>
+					<label class="personal__label" for="email">Email Address</label>
+					<input
+						class="personal__input"
+						type="email"
+						name="email"
+						id="email"
+						placeholder="e.g. stephenking@lorem.com"
+					/>
+					<label class="personal__label" for="phone">Phone Number</label>
+					<input
+						class="personal__input"
+						type="number"
+						name="phone"
+						id="phone"
+						placeholder="e.g. +1 234 567 890"
+					/>
+					<button type="submit">Next Step</button>
+				</form>
+			</section>
+		</div>
+		<footer class="attribution">
 			Challenge by
 			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
 				>Frontend Mentor</a
@@ -22,6 +67,6 @@
 			<a href="https://www.frontendmentor.io/profile/KamilKonopski"
 				>Kamil Konopski</a
 			>.
-		</div>
+		</footer>
 	</body>
 </html>
