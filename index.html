@@ -25,7 +25,7 @@
 					</ul>
 				</nav>
 			</header>
-			<section class="personal">
+			<section class="personal" data-page="1">
 				<h1 class="personal__heading">Personal info</h1>
 				<p class="personal__text-info">
 					Please provide your name, email address, and phone number.
@@ -57,7 +57,7 @@
 					/>
 				</form>
 			</section>
-			<section class="plan">
+			<section class="plan" data-page="2">
 				<h2 class="plan__heading">Select your plan</h2>
 				<p class="plan__text-info">
 					You have the option of monthly or yearly billing
@@ -94,7 +94,52 @@
 					<span class="plan__yearly">Yearly</span>
 				</div>
 			</section>
-			<div class="page">
+			<section class="pick" data-page="3">
+				<h2 class="pick__heading">Pick add-ons</h2>
+				<p class="pick__text-info">
+					Add-ons help enhance your gaming experience.
+				</p>
+				<div class="plan__options">
+					<input
+						class="plan__input"
+						type="checkbox"
+						name="service"
+						id="service"
+					/>
+					Online service
+					<label class="plan__label" for="service"
+						>Access to multiplayer games</label
+					>
+					<span class="plan__fee">+$1/mo</span>
+				</div>
+				<div class="plan__options">
+					<input
+						class="plan__input"
+						type="checkbox"
+						name="storage"
+						id="storage"
+					/>
+					Larger storage
+					<label class="plan__label" for="storage"
+						>Extra 1TB of cloud save</label
+					>
+					<span class="plan__fee">+$2/mo</span>
+				</div>
+				<div class="plan__options">
+					<input
+						class="plan__input"
+						type="checkbox"
+						name="profile"
+						id="profile"
+					/>
+					Customizable profile
+					<label class="plan__label" for="profile"
+						>Custom theme on your profile</label
+					>
+					<span class="plan__fee">+$2/mo</span>
+				</div>
+			</section>
+			<div class="change-page">
 				<button class="page__next-btn">Next Step</button>
 			</div>
 		</div>
