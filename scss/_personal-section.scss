@@ -1,0 +1,67 @@
+.personal {
+	background-color: $white;
+	border-radius: 8px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	left: 4%;
+	position: absolute;
+	top: 15%;
+	right: 4%;
+
+	&__heading {
+		color: $marineBlue;
+		flex-basis: 100%;
+		font-size: 2.5rem;
+		font-weight: 700;
+		justify-self: start;
+		margin: 3rem 0 1rem 1.8rem;
+	}
+
+	&__text-info {
+		color: $coolGray;
+		flex-basis: 100%;
+		font-size: 1.7rem;
+		font-weight: 500;
+		justify-self: start;
+		line-height: 150%;
+		margin: 0 5rem 0 1.8rem;
+	}
+
+	&__form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&__label {
+		color: $marineBlue;
+		flex-basis: 100%;
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin: 2.2rem 0 0.5rem 1.6rem;
+	}
+
+	&__input {
+		border: 1px solid $lightGray;
+		border-radius: 3px;
+		color: $marineBlue;
+		display: block;
+		flex-basis: 90%;
+		font-size: 1.6rem;
+		font-weight: 700;
+		padding: 1rem 1.5rem;
+
+		&::placeholder {
+			color: $coolGray;
+		}
+
+		&:focus {
+			outline: 1px solid $purplishBlue;
+		}
+
+		&:last-child {
+			margin-bottom: 4rem;
+		}
+	}
+}
