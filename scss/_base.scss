@@ -10,3 +10,14 @@ html {
 	font-family: "Ubuntu", sans-serif;
 	font-size: 10px;
 }
+
+body {
+	background-color: $lightGray;
+}
+
+.plan,
+.pick,
+.finish,
+.thanks {
+	display: none;
+}
