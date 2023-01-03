@@ -1,0 +1,28 @@
+.header {
+	background: url("../assets/images/bg-sidebar-mobile.svg") no-repeat center;
+	height: 25vh;
+
+	&__navigation {
+		.menu {
+			display: flex;
+			gap: 15px;
+			justify-content: center;
+			list-style: none;
+			padding-top: 4.5rem;
+
+			&__item {
+				border: 1px solid $white;
+				border-radius: 50%;
+				color: $white;
+				font-size: 1.5rem;
+				padding: 5px 10px;
+
+				&--active {
+					background-color: $lightBlue;
+					border-color: $lightBlue;
+					color: $marineBlue;
+				}
+			}
+		}
+	}
+}
