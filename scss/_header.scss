@@ -10,7 +10,7 @@
 			list-style: none;
 			padding-top: 4.5rem;
 
-			&__item {
+			&__number {
 				border: 1px solid $white;
 				border-radius: 50%;
 				color: $white;
@@ -22,6 +22,14 @@
 					border-color: $lightBlue;
 					color: $marineBlue;
 				}
+			}
+
+			&__step {
+				display: none;
+			}
+
+			&__text {
+				display: none;
 			}
 		}
 	}
