@@ -25,9 +25,11 @@ body {
 .container {
 	@media screen and (min-width: 1024px) {
 		background-color: $white;
-		display: flex;
-		flex-basis: 80%;
-		flex-wrap: wrap;
+		border-radius: 10px;
+		display: grid;
+		flex-basis: 50%;
+		grid-template-columns: auto auto;
+		grid-template-rows: auto auto;
 	}
 }
 
@@ -43,6 +45,9 @@ body {
 	width: 100%;
 
 	@media screen and (min-width: 1024px) {
+		background-color: transparent;
+		height: auto;
+		margin-right: 6rem;
 		position: static;
 	}
 
@@ -60,6 +65,10 @@ body {
 		&:hover {
 			background-color: lighten($marineBlue, 5%);
 		}
+
+		@media screen and (min-width: 1024px) {
+			margin-right: 8rem;
+		}
 	}
 }
 
@@ -68,6 +77,7 @@ body {
 
 	@media screen and (min-width: 1024px) {
 		display: block;
+		flex-basis: 100%;
 	}
 }
 
