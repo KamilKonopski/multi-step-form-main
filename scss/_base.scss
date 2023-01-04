@@ -13,6 +13,22 @@ html {
 
 body {
 	background-color: $lightGray;
+	@media screen and (min-width: 1024px) {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		height: 100vh;
+		justify-content: center;
+	}
+}
+
+.container {
+	@media screen and (min-width: 1024px) {
+		background-color: $white;
+		display: flex;
+		flex-basis: 80%;
+		flex-wrap: wrap;
+	}
 }
 
 .change-page {
@@ -25,6 +41,10 @@ body {
 	left: 0%;
 	position: absolute;
 	width: 100%;
+
+	@media screen and (min-width: 1024px) {
+		position: static;
+	}
 
 	.page__next-btn {
 		background-color: $marineBlue;
