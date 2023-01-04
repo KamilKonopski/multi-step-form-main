@@ -10,7 +10,9 @@
 	right: 4%;
 
 	@media screen and (min-width: 1024px) {
+		align-content: flex-start;
 		flex-basis: 50%;
+		margin-right: 6rem;
 		position: static;
 	}
 
@@ -21,6 +23,10 @@
 		font-weight: 700;
 		justify-self: start;
 		margin: 3rem 0 1rem 1.8rem;
+
+		@media screen and (min-width: 1024px) {
+			margin-top: 5rem;
+		}
 	}
 
 	&__text-info {
@@ -31,6 +37,11 @@
 		justify-self: start;
 		line-height: 150%;
 		margin: 0 5rem 0 1.8rem;
+
+		@media screen and (min-width: 1024px) {
+			font-size: 1.4rem;
+			margin-bottom: 2rem;
+		}
 	}
 
 	&__form {
