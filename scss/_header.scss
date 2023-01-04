@@ -2,6 +2,14 @@
 	background: url("../assets/images/bg-sidebar-mobile.svg") no-repeat center;
 	height: 25vh;
 
+	@media screen and (min-width: 1024px) {
+		background: url("../assets/images/bg-sidebar-desktop.svg") no-repeat;
+		grid-row: 1/-1;
+		height: 60vh;
+		margin: 1rem 3rem 1rem 1rem;
+		width: 80%;
+	}
+
 	&__navigation {
 		.menu {
 			display: flex;
@@ -9,6 +17,18 @@
 			justify-content: center;
 			list-style: none;
 			padding-top: 4.5rem;
+
+			@media screen and (min-width: 1024px) {
+				flex-wrap: wrap;
+				gap: 40px;
+			}
+
+			&__item {
+				@media screen and (min-width: 1024px) {
+					flex-basis: 100%;
+					margin-left: 3rem;
+				}
+			}
 
 			&__number {
 				border: 1px solid $white;
@@ -26,10 +46,25 @@
 
 			&__step {
 				display: none;
+
+				@media screen and (min-width: 1024px) {
+					display: block;
+					color: $coolGray;
+					margin: -25px 0px 0px 55px;
+					text-transform: uppercase;
+				}
 			}
 
 			&__text {
 				display: none;
+
+				@media screen and (min-width: 1024px) {
+					display: block;
+					color: $white;
+					font-size: 1.2rem;
+					margin: 5px 0px 0px 55px;
+					text-transform: uppercase;
+				}
 			}
 		}
 	}
