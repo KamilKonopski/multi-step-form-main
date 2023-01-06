@@ -1,19 +1,11 @@
 .personal {
-	background-color: $white;
-	border-radius: 8px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	left: 4%;
-	position: absolute;
-	top: 15%;
-	right: 4%;
 
 	@media screen and (min-width: 1024px) {
 		align-content: flex-start;
-		flex-basis: 50%;
 		margin-right: 6rem;
-		position: static;
 	}
 
 	&__heading {
