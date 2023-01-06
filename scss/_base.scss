@@ -33,6 +33,20 @@ body {
 	}
 }
 
+.page {
+	background-color: $white;
+	border-radius: 8px;
+	left: 4%;
+	position: absolute;
+	top: 15%;
+	right: 4%;
+
+	@media screen and (min-width: 1024px) {
+		flex-basis: 50%;
+		position: static;
+	}
+}
+
 .attribution {
 	display: none;
 
@@ -46,5 +60,5 @@ body {
 .pick,
 .finish,
 .thanks {
-	display: none;
+	display: none !important;
 }
