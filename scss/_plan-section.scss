@@ -4,19 +4,103 @@
 	justify-content: center;
 
 	&__heading {
+		color: $marineBlue;
 		flex-basis: 100%;
+		font-size: 2.5rem;
+		margin: 2.5rem 2.1rem 1rem;
 	}
 
 	&__text-info {
+		color: $coolGray;
 		flex-basis: 100%;
+		font-size: 1.8rem;
+		padding: 0 2.1rem 2rem;
 	}
 
 	&__options {
 		display: flex;
 		flex-wrap: wrap;
+		gap: 10px;
 	}
 
-	&__btn {
+	&__option {
+		align-items: center;
+		border: 1px solid $lightGray;
+		border-radius: 10px;
+		cursor: pointer;
+		display: grid;
 		flex-basis: 100%;
+		grid-template-columns: auto auto;
+		grid-template-rows: auto auto;
+		justify-content: start;
+		margin: 0 2rem;
+
+		&--selected {
+			background-color: $alabaster;
+			border-color: $purplishBlue;
+		}
+	}
+
+	&__image {
+		grid-column: 1/2;
+		grid-row: 1/-1;
+		margin: 2rem 1.5rem;
+	}
+
+	&__name {
+		align-self: flex-end;
+		color: $marineBlue;
+		font-size: 1.7rem;
+		font-weight: 700;
+		grid-column: 2/-1;
+		grid-row: 1/2;
+	}
+
+	&__price {
+		align-self: flex-start;
+		color: $coolGray;
+		font-size: 1.6rem;
+		margin-top: 5px;
+	}
+
+	&__sub {
+		align-items: center;
+		background-color: $alabaster;
+		display: flex;
+		flex-basis: 100%;
+		justify-content: center;
+		margin: 1.5rem 2.1rem 2rem;
+		padding: 1.5rem 0;
+	}
+
+	&__monthly {
+		color: $marineBlue;
+		font-size: 1.7rem;
+		font-weight: 700;
+	}
+
+	&__switch {
+		background-color: $marineBlue;
+		border: none;
+		border-radius: 50px;
+		height: 25px;
+		margin: 0 2.3rem;
+		width: 45px;
+
+		&::after {
+			background-color: $white;
+			border-radius: 50%;
+			content: "";
+			display: block;
+			height: 15px;
+			margin-left: 5px;
+			width: 15px;
+		}
+	}
+
+	&__yearly {
+		color: $coolGray;
+		font-size: 1.7rem;
+		font-weight: 700;
 	}
 }
