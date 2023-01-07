@@ -16,6 +16,20 @@
 		position: static;
 	}
 
+	.page__back-btn {
+		background: transparent;
+		border: none;
+		color: $coolGray;
+		cursor: pointer;
+		font-size: 1.6rem;
+		font-weight: 700;
+		transition: color 0.2s linear;
+
+		&:hover {
+			color: $marineBlue;
+		}
+	}
+
 	.page__next-btn {
 		background-color: $marineBlue;
 		border: none;
