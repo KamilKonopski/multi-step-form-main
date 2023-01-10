@@ -1,0 +1,109 @@
+.finish {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	&__heading {
+		color: $marineBlue;
+		flex-basis: 100%;
+		font-size: 2.5rem;
+		margin: 2.5rem 2.1rem 1rem;
+	}
+
+	&__text-info {
+		color: $coolGray;
+		flex-basis: 100%;
+		font-size: 1.8rem;
+		padding: 0 2.1rem 2rem;
+	}
+
+	&__summary {
+		background-color: $alabaster;
+		border-radius: 10px;
+		flex-basis: 90%;
+	}
+
+	&__plan {
+		border-bottom: 1px solid $coolGray;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-rows: auto auto;
+		justify-items: start;
+		margin: 0 auto 2rem;
+		width: 90%;
+	}
+
+	&__plan-chosen {
+		color: $marineBlue;
+		font-size: 1.65rem;
+		font-weight: 700;
+		grid-column: 1/2;
+		margin: 2rem 0 0.5rem;
+	}
+
+	&__btn {
+		background: transparent;
+		border: none;
+		color: $coolGray;
+		cursor: pointer;
+		font-size: 1.65rem;
+		font-weight: 500;
+		grid-column: 1/2;
+		margin-bottom: 1rem;
+		text-decoration: underline;
+
+		&:hover,
+		:active {
+			color: $purplishBlue;
+		}
+	}
+
+	&__plan-price {
+		color: $marineBlue;
+		font-size: 1.65rem;
+		font-weight: 700;
+		grid-column: 2/3;
+		margin-top: -1.5rem;
+	}
+
+	&__pick {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		justify-content: space-between;
+		margin: 0 auto 2rem;
+		width: 90%;
+	}
+
+	&__pick-chosen {
+		color: $coolGray;
+		flex-basis: 50%;
+		font-size: 1.6rem;
+		font-weight: 500;
+	}
+
+	&__pick-price {
+		color: $marineBlue;
+		font-size: 1.6rem;
+		font-weight: 500;
+	}
+
+	&__summary-price {
+		display: flex;
+		justify-content: space-between;
+		margin: 2.5rem auto 3rem;
+		width: 82%;
+	}
+
+	&__total-text {
+		color: $coolGray;
+		font-size: 1.6rem;
+		font-weight: 500;
+	}
+
+	&__total-price {
+		color: $purplishBlue;
+		font-size: 1.7rem;
+		font-weight: 700;
+	}
+}
