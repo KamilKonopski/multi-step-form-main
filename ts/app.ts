@@ -22,6 +22,16 @@ nextPageButton.addEventListener("click", () => {
 		changePageContainer.style.justifyContent = "space-between";
 	}
 
+	if (currentPage === 4) {
+		nextPageButton.innerText = "Confirm";
+		nextPageButton.classList.add("confirm");
+	}
+
+	if (currentPage === 5) {
+		nextPageButton.style.display = "none";
+		backPageButton.style.display = "none";
+	}
+
 	pages.forEach((page) => {
 		if (currentPage === +page.dataset.page!) {
 			console.log(currentPage);
@@ -40,6 +50,11 @@ backPageButton.addEventListener("click", () => {
 	if (currentPage <= 1) {
 		backPageButton.style.display = "none";
 		changePageContainer.style.justifyContent = "flex-end";
+	}
+
+	if (!(currentPage === 4)) {
+		nextPageButton.innerText = "Next Step";
+		nextPageButton.classList.remove("confirm");
 	}
 
 	pages.forEach((page) => {
