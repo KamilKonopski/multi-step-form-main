@@ -125,18 +125,22 @@
 		background-color: $marineBlue;
 		border: none;
 		border-radius: 50px;
+		cursor: pointer;
 		height: 25px;
 		margin: 0 2.3rem;
 		width: 45px;
 
-		&::after {
+		&-dot {
 			background-color: $white;
 			border-radius: 50%;
-			content: "";
-			display: block;
 			height: 15px;
 			margin-left: 5px;
+			transition: transform 0.2s linear;
 			width: 15px;
+
+			&.yearly {
+				transform: translateX(20px);
+			}
 		}
 	}
 
