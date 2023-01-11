@@ -3,10 +3,18 @@ const pages = document.querySelectorAll(".page");
 const changePageContainer = document.querySelector(".change-page");
 const nextPageButton = document.querySelector(".page__next-btn");
 const backPageButton = document.querySelector(".page__back-btn");
+const stepNumbers = document.querySelectorAll(".menu__number");
 let currentPage = 1;
 nextPageButton.addEventListener("click", () => {
     currentPage += 1;
-    console.log(currentPage);
+    stepNumbers.forEach((step) => {
+        if (+step.innerHTML === currentPage) {
+            step.classList.add("menu__number--active");
+        }
+        else {
+            step.classList.remove("menu__number--active");
+        }
+    });
     if (currentPage >= 2) {
         backPageButton.style.display = "block";
         changePageContainer.style.justifyContent = "space-between";
@@ -21,8 +29,6 @@ nextPageButton.addEventListener("click", () => {
     }
     pages.forEach((page) => {
         if (currentPage === +page.dataset.page) {
-            console.log(currentPage);
-            console.log(page);
             page.style.display = "flex";
         }
         else {
@@ -32,19 +38,24 @@ nextPageButton.addEventListener("click", () => {
 });
 backPageButton.addEventListener("click", () => {
     currentPage -= 1;
-    console.log(currentPage);
     if (currentPage <= 1) {
         backPageButton.style.display = "none";
         changePageContainer.style.justifyContent = "flex-end";
     }
+    stepNumbers.forEach((step) => {
+        if (+step.innerHTML === currentPage) {
+            step.classList.add("menu__number--active");
+        }
+        else {
+            step.classList.remove("menu__number--active");
+        }
+    });
     if (!(currentPage === 4)) {
         nextPageButton.innerText = "Next Step";
         nextPageButton.classList.remove("confirm");
     }
     pages.forEach((page) => {
         if (currentPage === +page.dataset.page) {
-            console.log(currentPage);
-            console.log(page);
             page.style.display = "flex";
         }
         else {
