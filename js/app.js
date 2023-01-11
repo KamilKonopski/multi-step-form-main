@@ -4,7 +4,15 @@ const changePageContainer = document.querySelector(".change-page");
 const nextPageButton = document.querySelector(".page__next-btn");
 const backPageButton = document.querySelector(".page__back-btn");
 const stepNumbers = document.querySelectorAll(".menu__number");
+const planOptions = document.querySelectorAll(".plan__option");
 let currentPage = 1;
+for (let i = 0; i < planOptions.length; i++) {
+    planOptions[i].addEventListener("click", function () {
+        let current = document.getElementsByClassName("plan__option--selected");
+        current[0].className = current[0].className.replace(" plan__option--selected", "");
+        this.className += " plan__option--selected";
+    });
+}
 nextPageButton.addEventListener("click", () => {
     currentPage += 1;
     stepNumbers.forEach((step) => {
