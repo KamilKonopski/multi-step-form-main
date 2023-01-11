@@ -47,6 +47,15 @@
 			background-color: lighten($marineBlue, 5%);
 		}
 
+		&.confirm {
+			background-color: $purplishBlue;
+			transition: opacity 0.2s linear;
+
+			&:hover {
+				opacity: 0.9;
+			}
+		}
+
 		@media screen and (min-width: 1024px) {
 			margin-right: 8rem;
 		}
