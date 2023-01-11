@@ -1,4 +1,7 @@
 const pages = document.querySelectorAll<HTMLDivElement>(".page");
+const changePageContainer = document.querySelector(
+	".change-page"
+) as HTMLDivElement;
 const nextPageButton = document.querySelector(
 	".page__next-btn"
 ) as HTMLButtonElement;
@@ -15,7 +18,8 @@ nextPageButton.addEventListener("click", () => {
 	console.log(currentPage);
 
 	if (currentPage >= 2) {
-		backPageButton.style.opacity = "1";
+		backPageButton.style.display = "block";
+		changePageContainer.style.justifyContent = "space-between";
 	}
 
 	pages.forEach((page) => {
@@ -34,7 +38,8 @@ backPageButton.addEventListener("click", () => {
 	console.log(currentPage);
 
 	if (currentPage <= 1) {
-		backPageButton.style.opacity = "0";
+		backPageButton.style.display = "none";
+		changePageContainer.style.justifyContent = "flex-end";
 	}
 
 	pages.forEach((page) => {
