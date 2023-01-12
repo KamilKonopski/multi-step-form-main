@@ -98,7 +98,9 @@ document.querySelectorAll(".personal__input").forEach((input) => {
 		target.style.borderColor = "#d6d9e6";
 		const label = target.previousElementSibling as HTMLLabelElement;
 		const requiredSpan = label.children[0] as HTMLSpanElement;
-		requiredSpan.style.display = "none";
+		if (requiredSpan) {
+			requiredSpan.style.display = "none";
+		}
 	});
 });
 
@@ -132,41 +134,40 @@ nextPageButton.addEventListener("click", () => {
 			personalPhone.value === ""
 		) {
 			return;
-		} else {
-			currentPage += 1;
-
-			stepNumbers.forEach((step) => {
-				if (+step.innerHTML === currentPage) {
-					step.classList.add("menu__number--active");
-				} else {
-					step.classList.remove("menu__number--active");
-				}
-			});
-
-			if (currentPage >= 2) {
-				backPageButton.style.display = "block";
-				changePageContainer.style.justifyContent = "space-between";
-			}
-
-			if (currentPage === 4) {
-				nextPageButton.innerText = "Confirm";
-				nextPageButton.classList.add("confirm");
-			}
-
-			if (currentPage === 5) {
-				nextPageButton.style.display = "none";
-				backPageButton.style.display = "none";
-			}
-
-			pages.forEach((page) => {
-				if (currentPage === +page.dataset.page!) {
-					page.style.display = "flex";
-				} else {
-					page.style.display = "none";
-				}
-			});
 		}
 	}
+
+	currentPage += 1;
+	stepNumbers.forEach((step) => {
+		if (+step.innerHTML === currentPage) {
+			step.classList.add("menu__number--active");
+		} else {
+			step.classList.remove("menu__number--active");
+		}
+	});
+
+	if (currentPage >= 2) {
+		backPageButton.style.display = "block";
+		changePageContainer.style.justifyContent = "space-between";
+	}
+
+	if (currentPage === 4) {
+		nextPageButton.innerText = "Confirm";
+		nextPageButton.classList.add("confirm");
+	}
+
+	if (currentPage === 5) {
+		nextPageButton.style.display = "none";
+		backPageButton.style.display = "none";
+	}
+
+	pages.forEach((page) => {
+		if (currentPage === +page.dataset.page!) {
+			page.style.display = "flex";
+		} else {
+			page.style.display = "none";
+		}
+	});
 });
 
 // BACK STEP BUTTON
