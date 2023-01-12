@@ -10,19 +10,43 @@ const backPageButton = document.querySelector(
 ) as HTMLButtonElement;
 const stepNumbers = document.querySelectorAll(".menu__number");
 const planOptions = document.querySelectorAll<HTMLDivElement>(".plan__option");
+const pickInputs = document.querySelectorAll<HTMLInputElement>(".pick__input");
+const personalForm = document.querySelector(
+	".personal__form"
+) as HTMLFormElement;
+const personalName = document.getElementById("name") as HTMLInputElement;
+const personalEmail = document.getElementById("email") as HTMLInputElement;
+const personalPhone = document.getElementById("phone") as HTMLInputElement;
 
 let currentPage = 1;
+let planOption: string;
+let pickSelectedArray: {
+	text: string;
+	price: string;
+}[] = [];
 
-// checkbox.addEventListener("change", function () {
-// 	if (this.checked) {
-// 		console.log("Checkbox is checked..");
-// 	} else {
-// 		console.log("Checkbox is not checked..");
-// 	}
-// });
+// PERSONAL FORM VALIDATE
 
+// if (personalName.value === "") {
+// 	const message = document.createElement("span");
+// 	message.classList.add("required");
+// 	message.innerText = "This field is required";
+// 	personalName.previousElementSibling?.appendChild(message);
+// }
+
+// PLAN SELECTED
 for (let i = 0; i < planOptions.length; i++) {
 	planOptions[i].addEventListener("click", function () {
+		// planOption = planOptions[i].dataset.option!;
+		// console.log(planOption);
+		// document.querySelector<HTMLSpanElement>(".finish__plan-chosen")!.innerText =
+		// 	planOption;
+
+		// const planPrice = planOptions[i].children[2] as HTMLSpanElement;
+
+		// document.querySelector<HTMLSpanElement>(".finish__plan-price")!.innerText =
+		// 	planPrice.innerText;
+
 		let current = document.getElementsByClassName("plan__option--selected");
 		current[0].className = current[0].className.replace(
 			" plan__option--selected",
@@ -32,41 +56,120 @@ for (let i = 0; i < planOptions.length; i++) {
 	});
 }
 
-nextPageButton.addEventListener("click", () => {
-	currentPage += 1;
+// PLAN SWITCH
+document
+	.querySelector<HTMLButtonElement>(".plan__switch")!
+	.addEventListener("click", () => {
+		console.log("i`m here");
 
-	stepNumbers.forEach((step) => {
-		if (+step.innerHTML === currentPage) {
-			step.classList.add("menu__number--active");
-		} else {
-			step.classList.remove("menu__number--active");
-		}
+		document
+			.querySelector<HTMLDivElement>(".plan__switch-dot")!
+			.classList.toggle("yearly");
 	});
 
-	if (currentPage >= 2) {
-		backPageButton.style.display = "block";
-		changePageContainer.style.justifyContent = "space-between";
-	}
+// PICK SELECTED
+for (let i = 0; i < pickInputs.length; i++) {
+	pickInputs[i].addEventListener("change", function () {
+		const pickOption = pickInputs[i].parentElement;
 
-	if (currentPage === 4) {
-		nextPageButton.innerText = "Confirm";
-		nextPageButton.classList.add("confirm");
-	}
-
-	if (currentPage === 5) {
-		nextPageButton.style.display = "none";
-		backPageButton.style.display = "none";
-	}
-
-	pages.forEach((page) => {
-		if (currentPage === +page.dataset.page!) {
-			page.style.display = "flex";
+		if (this.checked) {
+			pickOption?.classList.add("pick__option--selected");
+			const pickSelected = pickOption?.children[1] as HTMLLabelElement;
+			const pickPriceSelected = pickOption?.children[3] as HTMLLabelElement;
+			const pickSelectedObject = {
+				text: pickSelected.innerText,
+				price: pickPriceSelected.innerText,
+			};
+			pickSelectedArray.push(pickSelectedObject);
 		} else {
-			page.style.display = "none";
+			pickOption?.classList.remove("pick__option--selected");
+			const pickSelected = pickOption?.children[1] as HTMLLabelElement;
+			const newPickArray = pickSelectedArray.filter(
+				(el) => el.text !== pickSelected.innerText
+			);
+			pickSelectedArray = newPickArray;
 		}
+	});
+}
+
+document.querySelectorAll(".personal__input").forEach((input) => {
+	input.addEventListener("focus", (e) => {
+		const target = e.target as HTMLInputElement;
+		target.style.borderColor = "#d6d9e6";
+		const label = target.previousElementSibling as HTMLLabelElement;
+		const requiredSpan = label.children[0] as HTMLSpanElement;
+		requiredSpan.style.display = "none";
 	});
 });
 
+// NEXT STEP BUTTON
+nextPageButton.addEventListener("click", () => {
+	if (currentPage === 1) {
+		if (personalName.value === "") {
+			const message = document.createElement("span");
+			message.classList.add("required");
+			message.innerText = "This field is required";
+			personalName.previousElementSibling?.appendChild(message);
+			personalName.style.borderColor = "#ed3548";
+		}
+		if (personalEmail.value === "") {
+			const message = document.createElement("span");
+			message.classList.add("required");
+			message.innerText = "This field is required";
+			personalEmail.previousElementSibling?.appendChild(message);
+			personalEmail.style.borderColor = "#ed3548";
+		}
+		if (personalPhone.value === "" || personalPhone.value.length < 10) {
+			const message = document.createElement("span");
+			message.classList.add("required");
+			message.innerText = "This field is required";
+			personalPhone.previousElementSibling?.appendChild(message);
+			personalPhone.style.borderColor = "#ed3548";
+		}
+		if (
+			personalName.value === "" ||
+			personalEmail.value === "" ||
+			personalPhone.value === ""
+		) {
+			return;
+		} else {
+			currentPage += 1;
+
+			stepNumbers.forEach((step) => {
+				if (+step.innerHTML === currentPage) {
+					step.classList.add("menu__number--active");
+				} else {
+					step.classList.remove("menu__number--active");
+				}
+			});
+
+			if (currentPage >= 2) {
+				backPageButton.style.display = "block";
+				changePageContainer.style.justifyContent = "space-between";
+			}
+
+			if (currentPage === 4) {
+				nextPageButton.innerText = "Confirm";
+				nextPageButton.classList.add("confirm");
+			}
+
+			if (currentPage === 5) {
+				nextPageButton.style.display = "none";
+				backPageButton.style.display = "none";
+			}
+
+			pages.forEach((page) => {
+				if (currentPage === +page.dataset.page!) {
+					page.style.display = "flex";
+				} else {
+					page.style.display = "none";
+				}
+			});
+		}
+	}
+});
+
+// BACK STEP BUTTON
 backPageButton.addEventListener("click", () => {
 	currentPage -= 1;
 
