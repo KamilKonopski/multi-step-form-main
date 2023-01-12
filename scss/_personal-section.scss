@@ -41,23 +41,29 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-
-		.required {
-			display: none;
-			color: $strawberryRed;
-			font-size: 1.5rem;
-			font-weight: 500;
-		}
 	}
 
 	&__label {
 		color: $marineBlue;
 		flex-basis: 100%;
-		// flex-basis: 45%;
-		// margin: 2.2rem 1.6rem 0.5rem 0rem;
 		font-size: 1.5rem;
 		font-weight: 500;
 		margin: 2.2rem 0 0.5rem 1.8rem;
+		position: relative;
+
+		@media screen and (min-width: 1024px) {
+			margin-left: 2.5rem;
+		}
+
+		.required {
+			display: block;
+			color: $strawberryRed;
+			font-size: 1.5rem;
+			font-weight: 500;
+			position: absolute;
+			right: 30px;
+			top: 0px;
+		}
 	}
 
 	&__input {
