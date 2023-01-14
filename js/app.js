@@ -1,17 +1,15 @@
-"use strict";
-const pages = document.querySelectorAll(".page");
+import { planSectionElementBuilder } from "./dom-utils.js";
+const container = document.querySelector(".wrapper");
 const changePageContainer = document.querySelector(".change-page");
 const nextPageButton = document.querySelector(".page__next-btn");
 const backPageButton = document.querySelector(".page__back-btn");
 const stepNumbers = document.querySelectorAll(".menu__number");
 const planOptions = document.querySelectorAll(".plan__option");
 const pickInputs = document.querySelectorAll(".pick__input");
-const personalForm = document.querySelector(".personal__form");
 const personalName = document.getElementById("name");
 const personalEmail = document.getElementById("email");
 const personalPhone = document.getElementById("phone");
 let currentPage = 1;
-let planOption;
 let pickSelectedArray = [];
 for (let i = 0; i < planOptions.length; i++) {
     planOptions[i].addEventListener("click", function () {
@@ -20,14 +18,6 @@ for (let i = 0; i < planOptions.length; i++) {
         this.className += " plan__option--selected";
     });
 }
-document
-    .querySelector(".plan__switch")
-    .addEventListener("click", () => {
-    console.log("i`m here");
-    document
-        .querySelector(".plan__switch-dot")
-        .classList.toggle("yearly");
-});
 for (let i = 0; i < pickInputs.length; i++) {
     pickInputs[i].addEventListener("change", function () {
         const pickOption = pickInputs[i].parentElement;
@@ -111,7 +101,11 @@ nextPageButton.addEventListener("click", () => {
         nextPageButton.style.display = "none";
         backPageButton.style.display = "none";
     }
-    pages.forEach((page) => {
+    if (currentPage === 2) {
+        container.innerHTML = "";
+        container.appendChild(planSectionElementBuilder());
+    }
+    document.querySelectorAll(".page").forEach((page) => {
         if (currentPage === +page.dataset.page) {
             page.style.display = "flex";
         }
@@ -138,7 +132,7 @@ backPageButton.addEventListener("click", () => {
         nextPageButton.innerText = "Next Step";
         nextPageButton.classList.remove("confirm");
     }
-    pages.forEach((page) => {
+    document.querySelectorAll(".page").forEach((page) => {
         if (currentPage === +page.dataset.page) {
             page.style.display = "flex";
         }

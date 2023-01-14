@@ -1,4 +1,6 @@
-const pages = document.querySelectorAll<HTMLDivElement>(".page");
+import { planSectionElementBuilder } from "./dom-utils.js";
+
+const pages = document.querySelector(".pages") as HTMLDivElement;
 const changePageContainer = document.querySelector(
 	".change-page"
 ) as HTMLDivElement;
@@ -11,15 +13,12 @@ const backPageButton = document.querySelector(
 const stepNumbers = document.querySelectorAll(".menu__number");
 const planOptions = document.querySelectorAll<HTMLDivElement>(".plan__option");
 const pickInputs = document.querySelectorAll<HTMLInputElement>(".pick__input");
-const personalForm = document.querySelector(
-	".personal__form"
-) as HTMLFormElement;
 const personalName = document.getElementById("name") as HTMLInputElement;
 const personalEmail = document.getElementById("email") as HTMLInputElement;
 const personalPhone = document.getElementById("phone") as HTMLInputElement;
 
 let currentPage = 1;
-let planOption: string;
+// let planOption: string;
 let pickSelectedArray: {
 	text: string;
 	price: string;
@@ -57,15 +56,15 @@ for (let i = 0; i < planOptions.length; i++) {
 }
 
 // PLAN SWITCH
-document
-	.querySelector<HTMLButtonElement>(".plan__switch")!
-	.addEventListener("click", () => {
-		console.log("i`m here");
+// document
+// 	.querySelector<HTMLButtonElement>(".plan__switch")!
+// 	.addEventListener("click", () => {
+// 		console.log("i`m here");
 
-		document
-			.querySelector<HTMLDivElement>(".plan__switch-dot")!
-			.classList.toggle("yearly");
-	});
+// 		document
+// 			.querySelector<HTMLDivElement>(".plan__switch-dot")!
+// 			.classList.toggle("yearly");
+// 	});
 
 // PICK SELECTED
 for (let i = 0; i < pickInputs.length; i++) {
@@ -161,7 +160,12 @@ nextPageButton.addEventListener("click", () => {
 		backPageButton.style.display = "none";
 	}
 
-	pages.forEach((page) => {
+	if (currentPage === 2) {
+		pages.innerHTML = "";
+		pages.appendChild(planSectionElementBuilder());
+	}
+
+	document.querySelectorAll<HTMLDivElement>(".page").forEach((page) => {
 		if (currentPage === +page.dataset.page!) {
 			page.style.display = "flex";
 		} else {
@@ -192,7 +196,7 @@ backPageButton.addEventListener("click", () => {
 		nextPageButton.classList.remove("confirm");
 	}
 
-	pages.forEach((page) => {
+	document.querySelectorAll<HTMLDivElement>(".page").forEach((page) => {
 		if (currentPage === +page.dataset.page!) {
 			page.style.display = "flex";
 		} else {
