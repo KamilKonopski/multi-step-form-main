@@ -14,6 +14,29 @@ const textInfoElementBuilder = (pageName: string, textInfo: string) => {
 	return textInfoElement;
 };
 
+const personalInputElementBuilder = (
+	text: string,
+	type: string,
+	name: string,
+	placeholder: string
+) => {
+	const personalLabelElement = document.createElement("label");
+	personalLabelElement.classList.add("personal__label");
+	personalLabelElement.htmlFor = `${name}`;
+	personalLabelElement.innerText = `${text}`;
+
+	const personalInputElement = document.createElement("input");
+	personalInputElement.classList.add("personal__input");
+	personalInputElement.type = `${type}`;
+	personalInputElement.name = `${name}`;
+	personalInputElement.id = `${name}`;
+	personalInputElement.placeholder = `${placeholder}`;
+
+	personalLabelElement.appendChild(personalInputElement);
+
+	return personalLabelElement;
+};
+
 const planOptionElementBuilder = (
 	option: string,
 	name: string,
@@ -41,6 +64,50 @@ const planOptionElementBuilder = (
 	planOptionElement.appendChild(planPriceElement);
 
 	return planOptionElement;
+};
+
+export const personalSectionElementBuilder = () => {
+	const personalSectionElement = document.createElement("section");
+	personalSectionElement.classList.add("page", "personal");
+	personalSectionElement.setAttribute("data-page", "1");
+
+	personalSectionElement.appendChild(
+		headingElementBuilder("personal", "Personal info")
+	);
+
+	personalSectionElement.appendChild(
+		textInfoElementBuilder(
+			"personal",
+			"Please provide your name, email address, and phone number."
+		)
+	);
+
+	const personalFormElement = document.createElement("form");
+	personalFormElement.classList.add("personal__form");
+
+	personalFormElement.appendChild(
+		personalInputElementBuilder("Name", "text", "name", "e.g Stephen King")
+	);
+	personalFormElement.appendChild(
+		personalInputElementBuilder(
+			"Email Address",
+			"email",
+			"email",
+			"e.g stephenking@lorem.com"
+		)
+	);
+	personalFormElement.appendChild(
+		personalInputElementBuilder(
+			"Phone Number",
+			"number",
+			"phone",
+			"e.g + 1 234 567 890"
+		)
+	);
+
+	personalSectionElement.appendChild(personalFormElement);
+
+	return personalSectionElement;
 };
 
 export const planSectionElementBuilder = () => {
