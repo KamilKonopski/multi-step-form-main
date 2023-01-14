@@ -26,7 +26,7 @@ const planOptionElementBuilder = (
 
 	const planImageElement = document.createElement("img");
 	planImageElement.classList.add("plan__image");
-	planImageElement.src = `./assets/image/icon-${option}.svg`;
+	planImageElement.src = `./assets/images/icon-${option}.svg`;
 	planImageElement.alt = `${option} plan ${price}`;
 	planOptionElement.appendChild(planImageElement);
 
