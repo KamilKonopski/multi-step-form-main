@@ -1,4 +1,7 @@
-import { planSectionElementBuilder } from "./dom-utils.js";
+import {
+	personalSectionElementBuilder,
+	planSectionElementBuilder,
+} from "./dom-utils.js";
 
 const pages = document.querySelector(".pages") as HTMLDivElement;
 const changePageContainer = document.querySelector(
@@ -13,9 +16,6 @@ const backPageButton = document.querySelector(
 const stepNumbers = document.querySelectorAll(".menu__number");
 const planOptions = document.querySelectorAll<HTMLDivElement>(".plan__option");
 const pickInputs = document.querySelectorAll<HTMLInputElement>(".pick__input");
-const personalName = document.getElementById("name") as HTMLInputElement;
-const personalEmail = document.getElementById("email") as HTMLInputElement;
-const personalPhone = document.getElementById("phone") as HTMLInputElement;
 
 let currentPage = 1;
 // let planOption: string;
@@ -106,34 +106,36 @@ document.querySelectorAll(".personal__input").forEach((input) => {
 // NEXT STEP BUTTON
 nextPageButton.addEventListener("click", () => {
 	if (currentPage === 1) {
-		if (personalName.value === "") {
-			const message = document.createElement("span");
-			message.classList.add("required");
-			message.innerText = "This field is required";
-			personalName.previousElementSibling?.appendChild(message);
-			personalName.style.borderColor = "#ed3548";
-		}
-		if (personalEmail.value === "") {
-			const message = document.createElement("span");
-			message.classList.add("required");
-			message.innerText = "This field is required";
-			personalEmail.previousElementSibling?.appendChild(message);
-			personalEmail.style.borderColor = "#ed3548";
-		}
-		if (personalPhone.value === "" || personalPhone.value.length < 10) {
-			const message = document.createElement("span");
-			message.classList.add("required");
-			message.innerText = "This field is required";
-			personalPhone.previousElementSibling?.appendChild(message);
-			personalPhone.style.borderColor = "#ed3548";
-		}
-		if (
-			personalName.value === "" ||
-			personalEmail.value === "" ||
-			personalPhone.value === ""
-		) {
-			return;
-		}
+		pages.innerHTML = "";
+		pages.appendChild(personalSectionElementBuilder());
+		// if (personalName.value === "") {
+		// 	const message = document.createElement("span");
+		// 	message.classList.add("required");
+		// 	message.innerText = "This field is required";
+		// 	personalName.previousElementSibling?.appendChild(message);
+		// 	personalName.style.borderColor = "#ed3548";
+		// }
+		// if (personalEmail.value === "") {
+		// 	const message = document.createElement("span");
+		// 	message.classList.add("required");
+		// 	message.innerText = "This field is required";
+		// 	personalEmail.previousElementSibling?.appendChild(message);
+		// 	personalEmail.style.borderColor = "#ed3548";
+		// }
+		// if (personalPhone.value === "" || personalPhone.value.length < 10) {
+		// 	const message = document.createElement("span");
+		// 	message.classList.add("required");
+		// 	message.innerText = "This field is required";
+		// 	personalPhone.previousElementSibling?.appendChild(message);
+		// 	personalPhone.style.borderColor = "#ed3548";
+		// }
+		// if (
+		// 	personalName.value === "" ||
+		// 	personalEmail.value === "" ||
+		// 	personalPhone.value === ""
+		// ) {
+		// 	return;
+		// }
 	}
 
 	currentPage += 1;
@@ -178,6 +180,11 @@ nextPageButton.addEventListener("click", () => {
 backPageButton.addEventListener("click", () => {
 	currentPage -= 1;
 
+	if (currentPage === 1) {
+		pages.innerHTML = "";
+		pages.appendChild(personalSectionElementBuilder());
+	}
+
 	if (currentPage <= 1) {
 		backPageButton.style.display = "none";
 		changePageContainer.style.justifyContent = "flex-end";
@@ -204,3 +211,5 @@ backPageButton.addEventListener("click", () => {
 		}
 	});
 });
+
+pages.appendChild(personalSectionElementBuilder());

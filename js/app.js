@@ -1,14 +1,11 @@
-import { planSectionElementBuilder } from "./dom-utils.js";
-const container = document.querySelector(".wrapper");
+import { personalSectionElementBuilder, planSectionElementBuilder, } from "./dom-utils.js";
+const pages = document.querySelector(".pages");
 const changePageContainer = document.querySelector(".change-page");
 const nextPageButton = document.querySelector(".page__next-btn");
 const backPageButton = document.querySelector(".page__back-btn");
 const stepNumbers = document.querySelectorAll(".menu__number");
 const planOptions = document.querySelectorAll(".plan__option");
 const pickInputs = document.querySelectorAll(".pick__input");
-const personalName = document.getElementById("name");
-const personalEmail = document.getElementById("email");
-const personalPhone = document.getElementById("phone");
 let currentPage = 1;
 let pickSelectedArray = [];
 for (let i = 0; i < planOptions.length; i++) {
@@ -51,34 +48,9 @@ document.querySelectorAll(".personal__input").forEach((input) => {
     });
 });
 nextPageButton.addEventListener("click", () => {
-    var _a, _b, _c;
     if (currentPage === 1) {
-        if (personalName.value === "") {
-            const message = document.createElement("span");
-            message.classList.add("required");
-            message.innerText = "This field is required";
-            (_a = personalName.previousElementSibling) === null || _a === void 0 ? void 0 : _a.appendChild(message);
-            personalName.style.borderColor = "#ed3548";
-        }
-        if (personalEmail.value === "") {
-            const message = document.createElement("span");
-            message.classList.add("required");
-            message.innerText = "This field is required";
-            (_b = personalEmail.previousElementSibling) === null || _b === void 0 ? void 0 : _b.appendChild(message);
-            personalEmail.style.borderColor = "#ed3548";
-        }
-        if (personalPhone.value === "" || personalPhone.value.length < 10) {
-            const message = document.createElement("span");
-            message.classList.add("required");
-            message.innerText = "This field is required";
-            (_c = personalPhone.previousElementSibling) === null || _c === void 0 ? void 0 : _c.appendChild(message);
-            personalPhone.style.borderColor = "#ed3548";
-        }
-        if (personalName.value === "" ||
-            personalEmail.value === "" ||
-            personalPhone.value === "") {
-            return;
-        }
+        pages.innerHTML = "";
+        pages.appendChild(personalSectionElementBuilder());
     }
     currentPage += 1;
     stepNumbers.forEach((step) => {
@@ -102,8 +74,8 @@ nextPageButton.addEventListener("click", () => {
         backPageButton.style.display = "none";
     }
     if (currentPage === 2) {
-        container.innerHTML = "";
-        container.appendChild(planSectionElementBuilder());
+        pages.innerHTML = "";
+        pages.appendChild(planSectionElementBuilder());
     }
     document.querySelectorAll(".page").forEach((page) => {
         if (currentPage === +page.dataset.page) {
@@ -116,6 +88,10 @@ nextPageButton.addEventListener("click", () => {
 });
 backPageButton.addEventListener("click", () => {
     currentPage -= 1;
+    if (currentPage === 1) {
+        pages.innerHTML = "";
+        pages.appendChild(personalSectionElementBuilder());
+    }
     if (currentPage <= 1) {
         backPageButton.style.display = "none";
         changePageContainer.style.justifyContent = "flex-end";
@@ -141,4 +117,5 @@ backPageButton.addEventListener("click", () => {
         }
     });
 });
+pages.appendChild(personalSectionElementBuilder());
 //# sourceMappingURL=app.js.map
