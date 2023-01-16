@@ -122,6 +122,7 @@ export const pickSectionElementBuilder = () => {
     pickOptions.appendChild(pickOptionElementBuilder("service", "Online service", "Access to multiplayer games", "+$1/mo"));
     pickOptions.appendChild(pickOptionElementBuilder("storage", "Larger storage", "Extra 1TB of cloud save", "+$2/mo"));
     pickOptions.appendChild(pickOptionElementBuilder("profile", "Customizable profile", "Custom theme on your profile", "+$2/mo"));
+    pickSectionElement.appendChild(pickOptions);
     return pickSectionElement;
 };
 //# sourceMappingURL=dom-utils.js.map

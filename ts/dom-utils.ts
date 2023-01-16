@@ -250,5 +250,7 @@ export const pickSectionElementBuilder = () => {
 		)
 	);
 
+	pickSectionElement.appendChild(pickOptions);
+
 	return pickSectionElement;
 };
