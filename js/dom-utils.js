@@ -125,4 +125,29 @@ export const pickSectionElementBuilder = () => {
     pickSectionElement.appendChild(pickOptions);
     return pickSectionElement;
 };
+export const finishSectionElementBuilder = () => {
+    const finishSectionElement = document.createElement("section");
+    finishSectionElement.classList.add("page", "finish");
+    finishSectionElement.setAttribute("data-page", "4");
+    const finishSummary = document.createElement("div");
+    finishSummary.classList.add("finish__summary");
+    const finishPlan = document.createElement("div");
+    finishPlan.classList.add("finish__plan");
+    return finishSectionElement;
+};
+export const thanksSectionElementBuilder = () => {
+    const thanksSectionElement = document.createElement("section");
+    thanksSectionElement.classList.add("page", "thanks");
+    thanksSectionElement.setAttribute("data-page", "5");
+    const thanksIcon = document.createElement("div");
+    thanksIcon.classList.add("thanks__icon");
+    const thanksImage = document.createElement("img");
+    thanksImage.classList.add("thanks__image");
+    thanksImage.src = "./assets/images/icon-thank-you.svg";
+    thanksImage.alt = "thanks icon";
+    thanksIcon.appendChild(thanksImage);
+    thanksSectionElement.appendChild(thanksIcon);
+    thanksSectionElement.appendChild(headingElementBuilder("thanks", "Thank you!"));
+    thanksSectionElement.appendChild(textInfoElementBuilder("thanks", "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com"));
+};
 //# sourceMappingURL=dom-utils.js.map
