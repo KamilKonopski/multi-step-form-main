@@ -1,19 +1,22 @@
+// HEADING
 const headingElementBuilder = (pageName: string, headingText: string) => {
 	const headingElement = document.createElement("h2");
 	headingElement.classList.add(`${pageName}__heading`);
-	headingElement.innerText = `${headingText}`;
+	headingElement.innerText = headingText;
 
 	return headingElement;
 };
 
+// TEXT INFO
 const textInfoElementBuilder = (pageName: string, textInfo: string) => {
 	const textInfoElement = document.createElement("p");
 	textInfoElement.classList.add(`${pageName}__text-info`);
-	textInfoElement.innerText = `${textInfo}`;
+	textInfoElement.innerText = textInfo;
 
 	return textInfoElement;
 };
 
+// PERSONAL INPUT
 const personalInputElementBuilder = (
 	text: string,
 	type: string,
@@ -22,21 +25,22 @@ const personalInputElementBuilder = (
 ) => {
 	const personalLabelElement = document.createElement("label");
 	personalLabelElement.classList.add("personal__label");
-	personalLabelElement.htmlFor = `${name}`;
-	personalLabelElement.innerText = `${text}`;
+	personalLabelElement.htmlFor = name;
+	personalLabelElement.innerText = text;
 
 	const personalInputElement = document.createElement("input");
 	personalInputElement.classList.add("personal__input");
-	personalInputElement.type = `${type}`;
-	personalInputElement.name = `${name}`;
-	personalInputElement.id = `${name}`;
-	personalInputElement.placeholder = `${placeholder}`;
+	personalInputElement.type = type;
+	personalInputElement.name = name;
+	personalInputElement.id = name;
+	personalInputElement.placeholder = placeholder;
 
 	personalLabelElement.appendChild(personalInputElement);
 
 	return personalLabelElement;
 };
 
+// PLAN OPTION
 const planOptionElementBuilder = (
 	option: string,
 	name: string,
@@ -45,7 +49,7 @@ const planOptionElementBuilder = (
 ) => {
 	const planOptionElement = document.createElement("div");
 	planOptionElement.classList.add("plan__option", `${activeClass}`);
-	planOptionElement.setAttribute("data-option", `${option}`);
+	planOptionElement.setAttribute("data-option", option);
 
 	const planImageElement = document.createElement("img");
 	planImageElement.classList.add("plan__image");
@@ -55,17 +59,54 @@ const planOptionElementBuilder = (
 
 	const planNameElement = document.createElement("span");
 	planNameElement.classList.add("plan__name");
-	planNameElement.innerText = `${name}`;
+	planNameElement.innerText = name;
 	planOptionElement.appendChild(planNameElement);
 
 	const planPriceElement = document.createElement("span");
 	planPriceElement.classList.add("plan__price");
-	planPriceElement.innerText = `${price}`;
+	planPriceElement.innerText = price;
 	planOptionElement.appendChild(planPriceElement);
 
 	return planOptionElement;
 };
 
+// PICK OPTION
+const pickOptionElementBuilder = (
+	name: string,
+	nameText: string,
+	desc: string,
+	price: string
+) => {
+	const pickOption = document.createElement("label");
+	pickOption.classList.add("pick__option");
+	pickOption.htmlFor = name;
+
+	const pickInput = document.createElement("input");
+	pickInput.classList.add("pick__input");
+	pickInput.type = "checkbox";
+	pickInput.name = name;
+	pickInput.id = name;
+	pickOption.appendChild(pickInput);
+
+	const pickName = document.createElement("span");
+	pickName.classList.add("pick__name");
+	pickName.innerText = nameText;
+	pickOption.appendChild(pickName);
+
+	const pickDesc = document.createElement("span");
+	pickDesc.classList.add("pick__desc");
+	pickDesc.innerText = desc;
+	pickOption.appendChild(pickDesc);
+
+	const pickPrice = document.createElement("span");
+	pickPrice.classList.add("pick__price");
+	pickPrice.innerText = price;
+	pickOption.appendChild(pickPrice);
+
+	return pickOption;
+};
+
+// PERSONAL SECTION
 export const personalSectionElementBuilder = () => {
 	const personalSectionElement = document.createElement("section");
 	personalSectionElement.classList.add("page", "personal");
@@ -110,6 +151,7 @@ export const personalSectionElementBuilder = () => {
 	return personalSectionElement;
 };
 
+// PLAN SECTION
 export const planSectionElementBuilder = () => {
 	const planSectionElement = document.createElement("section");
 	planSectionElement.classList.add("page", "plan");
@@ -165,4 +207,48 @@ export const planSectionElementBuilder = () => {
 	planSubElement.appendChild(planYearlyElement);
 
 	return planSectionElement;
+};
+
+// PICK SECTION
+export const pickSectionElementBuilder = () => {
+	const pickSectionElement = document.createElement("section");
+	pickSectionElement.classList.add("page", "pick");
+	pickSectionElement.setAttribute("data-page", "3");
+
+	pickSectionElement.appendChild(headingElementBuilder("pick", "Pick add-ons"));
+	pickSectionElement.appendChild(
+		textInfoElementBuilder(
+			"pick",
+			"Add-ons help enhance your gaming experience."
+		)
+	);
+
+	const pickOptions = document.createElement("div");
+	pickOptions.classList.add("pick__options");
+	pickOptions.appendChild(
+		pickOptionElementBuilder(
+			"service",
+			"Online service",
+			"Access to multiplayer games",
+			"+$1/mo"
+		)
+	);
+	pickOptions.appendChild(
+		pickOptionElementBuilder(
+			"storage",
+			"Larger storage",
+			"Extra 1TB of cloud save",
+			"+$2/mo"
+		)
+	);
+	pickOptions.appendChild(
+		pickOptionElementBuilder(
+			"profile",
+			"Customizable profile",
+			"Custom theme on your profile",
+			"+$2/mo"
+		)
+	);
+
+	return pickSectionElement;
 };
