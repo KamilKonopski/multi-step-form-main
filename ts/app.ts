@@ -2,6 +2,7 @@ import {
 	personalSectionElementBuilder,
 	planSectionElementBuilder,
 	pickSectionElementBuilder,
+	thanksSectionElementBuilder,
 } from "./dom-utils.js";
 
 const pages = document.querySelector(".pages") as HTMLDivElement;
@@ -159,6 +160,9 @@ nextPageButton.addEventListener("click", () => {
 	}
 
 	if (currentPage === 5) {
+		pages.innerHTML = "";
+		pages.appendChild(thanksSectionElementBuilder());
+
 		nextPageButton.style.display = "none";
 		backPageButton.style.display = "none";
 	}

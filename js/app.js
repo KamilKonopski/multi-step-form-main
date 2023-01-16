@@ -1,4 +1,4 @@
-import { personalSectionElementBuilder, planSectionElementBuilder, pickSectionElementBuilder, } from "./dom-utils.js";
+import { personalSectionElementBuilder, planSectionElementBuilder, pickSectionElementBuilder, thanksSectionElementBuilder, } from "./dom-utils.js";
 const pages = document.querySelector(".pages");
 const changePageContainer = document.querySelector(".change-page");
 const nextPageButton = document.querySelector(".page__next-btn");
@@ -70,6 +70,8 @@ nextPageButton.addEventListener("click", () => {
         nextPageButton.classList.add("confirm");
     }
     if (currentPage === 5) {
+        pages.innerHTML = "";
+        pages.appendChild(thanksSectionElementBuilder());
         nextPageButton.style.display = "none";
         backPageButton.style.display = "none";
     }
