@@ -149,5 +149,6 @@ export const thanksSectionElementBuilder = () => {
     thanksSectionElement.appendChild(thanksIcon);
     thanksSectionElement.appendChild(headingElementBuilder("thanks", "Thank you!"));
     thanksSectionElement.appendChild(textInfoElementBuilder("thanks", "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com"));
+    return thanksSectionElement;
 };
 //# sourceMappingURL=dom-utils.js.map
