@@ -1,4 +1,4 @@
-import { personalSectionElementBuilder, planSectionElementBuilder, } from "./dom-utils.js";
+import { personalSectionElementBuilder, planSectionElementBuilder, pickSectionElementBuilder, } from "./dom-utils.js";
 const pages = document.querySelector(".pages");
 const changePageContainer = document.querySelector(".change-page");
 const nextPageButton = document.querySelector(".page__next-btn");
@@ -77,6 +77,10 @@ nextPageButton.addEventListener("click", () => {
         pages.innerHTML = "";
         pages.appendChild(planSectionElementBuilder());
     }
+    if (currentPage === 3) {
+        pages.innerHTML = "";
+        pages.appendChild(pickSectionElementBuilder());
+    }
     document.querySelectorAll(".page").forEach((page) => {
         if (currentPage === +page.dataset.page) {
             page.style.display = "flex";
@@ -104,6 +108,14 @@ backPageButton.addEventListener("click", () => {
             step.classList.remove("menu__number--active");
         }
     });
+    if (currentPage === 2) {
+        pages.innerHTML = "";
+        pages.appendChild(planSectionElementBuilder());
+    }
+    if (currentPage === 3) {
+        pages.innerHTML = "";
+        pages.appendChild(pickSectionElementBuilder());
+    }
     if (!(currentPage === 4)) {
         nextPageButton.innerText = "Next Step";
         nextPageButton.classList.remove("confirm");
