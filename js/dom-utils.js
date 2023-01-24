@@ -133,6 +133,8 @@ export const finishSectionElementBuilder = () => {
     finishSummary.classList.add("finish__summary");
     const finishPlan = document.createElement("div");
     finishPlan.classList.add("finish__plan");
+    const finishPlanChosen = document.createElement("span");
+    finishPlanChosen.classList.add("finish__plan-chosen");
     return finishSectionElement;
 };
 export const thanksSectionElementBuilder = () => {

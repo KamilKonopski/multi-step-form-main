@@ -267,11 +267,13 @@ export const finishSectionElementBuilder = () => {
 	const finishPlan = document.createElement("div");
 	finishPlan.classList.add("finish__plan");
 
-	// const finishPlanChosen = document.createElement("span");
+	const finishPlanChosen = document.createElement("span");
+	finishPlanChosen.classList.add("finish__plan-chosen");
 
 	return finishSectionElement;
 };
 
+// THANKS SECTION
 export const thanksSectionElementBuilder = () => {
 	const thanksSectionElement = document.createElement("section");
 	thanksSectionElement.classList.add("page", "thanks");
