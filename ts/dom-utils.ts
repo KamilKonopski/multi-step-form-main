@@ -261,14 +261,30 @@ export const finishSectionElementBuilder = () => {
 	finishSectionElement.classList.add("page", "finish");
 	finishSectionElement.setAttribute("data-page", "4");
 
+	finishSectionElement.appendChild(
+		headingElementBuilder("finish", "Finishing up")
+	);
+	finishSectionElement.appendChild(
+		textInfoElementBuilder(
+			"finish",
+			"Double-check everything looks OK before confirming."
+		)
+	);
+
 	const finishSummary = document.createElement("div");
 	finishSummary.classList.add("finish__summary");
+
+	finishSectionElement.appendChild(finishSummary);
 
 	const finishPlan = document.createElement("div");
 	finishPlan.classList.add("finish__plan");
 
-	const finishPlanChosen = document.createElement("span");
-	finishPlanChosen.classList.add("finish__plan-chosen");
+	finishSectionElement.appendChild(finishPlan);
+
+	const finishSummaryPrice = document.createElement("div");
+	finishSummaryPrice.classList.add("finish__summary-price");
+
+	finishSectionElement.appendChild(finishSummaryPrice);
 
 	return finishSectionElement;
 };
