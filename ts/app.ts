@@ -101,4 +101,5 @@ nextPageButton.addEventListener("click", nextPageHandler);
 // BACK STEP BUTTON
 backPageButton.addEventListener("click", backPageHandler);
 
+// FIRST PAGE LOAD
 pages.appendChild(personalSectionElementBuilder());
