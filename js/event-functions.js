@@ -1,5 +1,5 @@
 import { pages, stepNumbers, nextPageButton, backPageButton, changePageContainer, } from "./variables.js";
-import { personalSectionElementBuilder, pickSectionElementBuilder, planSectionElementBuilder, thanksSectionElementBuilder, } from "./dom-utils.js";
+import { personalSectionElementBuilder, pickSectionElementBuilder, planSectionElementBuilder, finishSectionElementBuilder, thanksSectionElementBuilder, } from "./dom-utils.js";
 let currentPage = 1;
 export function nextPageHandler() {
     if (currentPage === 1) {
@@ -20,6 +20,8 @@ export function nextPageHandler() {
         changePageContainer.style.justifyContent = "space-between";
     }
     if (currentPage === 4) {
+        pages.innerHTML = "";
+        pages.appendChild(finishSectionElementBuilder());
         nextPageButton.innerText = "Confirm";
         nextPageButton.classList.add("confirm");
     }

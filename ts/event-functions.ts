@@ -10,6 +10,7 @@ import {
 	personalSectionElementBuilder,
 	pickSectionElementBuilder,
 	planSectionElementBuilder,
+	finishSectionElementBuilder,
 	thanksSectionElementBuilder,
 } from "./dom-utils.js";
 
@@ -64,6 +65,9 @@ export function nextPageHandler() {
 	}
 
 	if (currentPage === 4) {
+		pages.innerHTML = "";
+		pages.appendChild(finishSectionElementBuilder());
+
 		nextPageButton.innerText = "Confirm";
 		nextPageButton.classList.add("confirm");
 	}
