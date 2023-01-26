@@ -5,4 +5,5 @@ export const backPageButton = document.querySelector(".page__back-btn");
 export const stepNumbers = document.querySelectorAll(".menu__number");
 export const planOptions = document.querySelectorAll(".plan__option");
 export const pickInputs = document.querySelectorAll(".pick__input");
+export const planSwitch = document.querySelector(".plan__switch");
 //# sourceMappingURL=variables.js.map

@@ -13,3 +13,5 @@ export const planOptions =
 	document.querySelectorAll<HTMLDivElement>(".plan__option");
 export const pickInputs =
 	document.querySelectorAll<HTMLInputElement>(".pick__input");
+export const planSwitch =
+	document.querySelector<HTMLButtonElement>(".plan__switch")!;
