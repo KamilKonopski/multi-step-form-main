@@ -1,3 +1,5 @@
+import { planSwitch } from "./event-functions.js";
+
 // HEADING
 const headingElementBuilder = (pageName: string, headingText: string) => {
 	const headingElement = document.createElement("h2");
@@ -200,11 +202,14 @@ export const planSectionElementBuilder = () => {
 	planSwitchDotElement.classList.add("plan__switch-dot");
 	planSwitchElement.appendChild(planSwitchDotElement);
 	planSubElement.appendChild(planSwitchElement);
+	planSwitchElement.addEventListener("click", planSwitch);
 
 	const planYearlyElement = document.createElement("span");
 	planYearlyElement.classList.add("plan__yearly");
 	planYearlyElement.innerText = "Yearly";
 	planSubElement.appendChild(planYearlyElement);
+
+	planSectionElement.appendChild(planSubElement);
 
 	return planSectionElement;
 };
