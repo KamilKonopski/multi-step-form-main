@@ -143,3 +143,9 @@ export function backPageHandler() {
 		}
 	});
 }
+
+export function planSwitch() {
+	document
+		.querySelector<HTMLDivElement>(".plan__switch-dot")!
+		.classList.toggle("yearly");
+}

@@ -87,4 +87,9 @@ export function backPageHandler() {
         }
     });
 }
+export function planSwitch() {
+    document
+        .querySelector(".plan__switch-dot")
+        .classList.toggle("yearly");
+}
 //# sourceMappingURL=event-functions.js.map
