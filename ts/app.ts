@@ -10,15 +10,6 @@ import { nextPageHandler, backPageHandler } from "./event-functions.js";
 // 	price: string;
 // }[] = [];
 
-// PERSONAL FORM VALIDATE
-
-// if (personalName.value === "") {
-// 	const message = document.createElement("span");
-// 	message.classList.add("required");
-// 	message.innerText = "This field is required";
-// 	personalName.previousElementSibling?.appendChild(message);
-// }
-
 // PLAN SELECTED
 // for (let i = 0; i < planOptions.length; i++) {
 // 	planOptions[i].addEventListener("click", function () {
