@@ -4,12 +4,6 @@ import { personalSectionElementBuilder } from "./dom-utils.js";
 
 import { nextPageHandler, backPageHandler } from "./event-functions.js";
 
-// let planOption: string;
-// let pickSelectedArray: {
-// 	text: string;
-// 	price: string;
-// }[] = [];
-
 // PLAN SELECTED
 // for (let i = 0; i < planOptions.length; i++) {
 // 	planOptions[i].addEventListener("click", function () {
